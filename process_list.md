@@ -56,6 +56,15 @@ module_exit(ExitModule);
 ```
 
 ### Extra details about the code
+All the three MODULE declarations are compulsary, doesn't compile without those.   
+The functions are defined as static for the foloowing reasons
+- It is not needed outside of this file, so it is provides a good encapsulation.
+- Avoids name collisions and reduces the size of kernel binary.
+- Additionally, declaring it as static prevents it from being used in the global space.   
+
+**GPL** -GNU General Public License   
+It is a widely used open source software license created by the Free Software Foundation(FSF), it is a copyleft lincense which grants other users the rights to modify and redistribute the software. It is also used in Linux Kernel and GCC.   
+
 1.**&init_task**
 
 It is a global variable and member of task_struct. In a linux system the `init` process is the root process(PID 1). It is the first process that is started on booting and it can start and stop other processes.
