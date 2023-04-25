@@ -67,7 +67,15 @@ wsl --shutdown
 ```
 uname -a
 ```
-> This will show the time when kernel was last changed
+> This will show the time when kernel was last changed (a '+' along with the kernel build indicates it is a custom build)
 
 > Note: If there are multiple distros on wsl, all of them use the same kernel
+
+
+To revert the kernel back to the default build:
+- make a copy of the .wslconfig file in the c drive to revert back to the custom build later.
+- remove .wslconfig from the c drive in windows 
+- wsl --shutdown(in powershell)
+- open the wsl distro and run uname -a to check if the kernel got reverted(if it got reverted the date will go back to the last update of your kernel and the '+' sign will not exist next to the build name)
+> Fun fact: WSL identifies the need for a custom build when the .wslconfig file is in the c drive. It then uses the image specified in that file to boot that kernel build. If the file is not found it just uses the default kernel with which WSL comes.
 
